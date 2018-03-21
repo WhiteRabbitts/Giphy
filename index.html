@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Magical Celebrities</title>
+</head>
+
+<body>
+  <button data-person="Tom Hanks">Tom Hanks</button>
+  <button data-person="Harrison Ford">
+    Harrison Ford
+  </button>
+
+
+  <button data-person="Jeff Goldblum">
+    Jeff Goldblum
+  </button>
+  <button data-person="Ellen DeGeneres">
+Ellen DeGeneres
+  </button>
+  <button data-person="Steve Carell">
+Steve Carell
+  </button>
+  <br>
+  <br>
+
+  <form id="newperson-form">
+    <label for="person-input">Add a Celebrity</label>
+    <input type="text" id="person-input"><br>
+
+    <input id="add-person" type="submit" value="Add">
+</form>
+
+  <div id="gifsgohere">
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    $("button").on("click", function() {
+      var person = $(this).attr("data-person");
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        person + "&api_key=gi5GCjsJkUM3oQcURUEQ1M9mgT1DWdrZ";
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+        .then(function(response) {
+          var results = response.data;
+          for (var i = 0; i < results.length; i++) {
+            if (results[i].rating !== "" && results[i].rating !== "") {
+              var gifDiv = $("<div class='item'>");
+              var rating = results[i].rating;
+              var p = $("<p>").text("Rating: " + rating);
+              var personImage = $("<img>");
+              personImage.attr("src", results[i].images.fixed_height.url);
+              gifDiv.append(p);
+              gifDiv.append(personImage);
+              $("#gifsgohere").prepend(gifDiv);
+            }
+          }
+        });
+    });
+  </script>
+</body>
+
+</html>
