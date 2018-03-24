@@ -1,0 +1,26 @@
+button {
+    color: darkolivegreen;
+    background-color: darksalmon;
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+button:hover {
+    color: darkolivegreen;
+    background-color: goldenrod;
+}
+
+#add-person {
+    font-size: 20px;
+    color: darkolivegreen;
+    background-color:gold;
+    border-radius: 4px;
+}
+#add-person:hover {
+    color: darkolivegreen;
+    background-color: grey;
+}
+
+body {
+    background-color: deepskyblue;
+}

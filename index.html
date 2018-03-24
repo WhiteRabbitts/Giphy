@@ -1,13 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <title>Magical Celebrities</title>
+  <link rel="stylesheet" type="text/css" href="giphycss.css">
 </head>
 
 <body>
+  <br>
   <button data-person="Tom Hanks">Tom Hanks</button>
   <button data-person="Harrison Ford">
     Harrison Ford
@@ -29,6 +30,7 @@ Steve Carell
   <form id="newperson-form">
     <label for="person-input">Add a Celebrity</label>
     <input type="text" id="person-input"><br>
+    <br>
 
     <input id="add-person" type="submit" value="Add">
 </form>
@@ -58,6 +60,7 @@ Steve Carell
               gifDiv.append(p);
               gifDiv.append(personImage);
               $("#gifsgohere").prepend(gifDiv);
+              $("#buttons").empty();
             }
           }
         });
